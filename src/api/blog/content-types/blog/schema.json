@@ -48,11 +48,34 @@
       "customField": "plugin::ckeditor.CKEditor"
     },
     "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "by": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "default": "Trademindshub"
+    },
+    "banner": {
+      "allowedTypes": [
+        "images",
+        "videos"
       ],
       "type": "media",
       "multiple": false,
@@ -60,7 +83,8 @@
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     }
   }
 }
