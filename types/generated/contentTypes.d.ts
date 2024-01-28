@@ -368,6 +368,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     singularName: 'blog';
     pluralName: 'blogs';
     displayName: 'Blog';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -394,8 +395,20 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 300;
       }>;
-    content: Attribute.Blocks &
-      Attribute.Required &
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'light';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    thumbnail: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
